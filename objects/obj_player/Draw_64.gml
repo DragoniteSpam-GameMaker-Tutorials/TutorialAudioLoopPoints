@@ -2,6 +2,11 @@ for (var i = 0; i < 3; i++) {
     draw_sprite_ext(spr_hearts, 0, 64 + 72 * i, 64, 4, 4, 0, c_white, 1);
 }
 
+draw_set_font(fnt_game);
+draw_set_color(c_black);
+draw_text(32, 96, "Track position: " + string(audio_sound_get_track_position(bgm)) + "/" + string(audio_sound_length(bgm)));
+draw_text(32, 128, "Loop points: " + string(audio_sound_get_loop_start(bgm)) + " to " + string(audio_sound_get_loop_end(bgm)));
+
 if (talking) {
     //draw_nineslice(spr_nineslice, 0, 0, window_get_height() - 128, window_get_width(), window_get_height());
     draw_sprite_stretched(spr_nineslice, 0, 0, window_get_height() - 128, window_get_width(), 128);
